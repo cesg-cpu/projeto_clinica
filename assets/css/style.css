@@ -108,6 +108,7 @@ header {
 /* principa */
 
 .titulo {
+    background-image: url('../../imgs/medicos.jpg');
     display: flex;
     flex-direction: column;
     align-items: flex-start;
