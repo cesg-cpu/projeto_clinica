@@ -2,7 +2,8 @@
 
 
 :root {
-    --bg-fundo: #e7f8ff;
+    --bg-fundo: #f2f7fc;
+    --bg-fundos: #c8e0f844;
     --bg-branco: #ffffff;
     --texto-padrao: #333;
     --texto-cinza-escuro: #555;
@@ -35,44 +36,85 @@ header {
     box-shadow: 0 2px 10px var(--sombra-padrao);
 }
 
+/* main {
+    margin: 0 auto;
+    padding: 0 auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 30000px;
+} */
+
 .navegacao {
     display: flex;
     justify-content: space-between; 
     align-items: center;
-    max-width: 1200px;
+    max-width: 1700px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 auto;
+}
+
+.navegacao, .rodape {
+    max-width: 1400px; /* Mantém o alinhamento com o topo */
 }
 
 .navegacao img {
-    height: 40px; 
+    height: 80px; 
     object-fit: contain;
 }
+
+.logo_texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.navegacao h3 {
+    color: var(--azul-marinho);
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.logotitulo {
+    display: flex;
+    align-items: center;
+}
+
 
 .nav-links {
     display: flex;
     list-style: none;
     gap: 25px;
+    align-items: center;
 }
 
 .nav-links a {
     text-decoration: none;
     color: var(--azul-marinho);
-    font-size: 0.85rem;
+    font-size: 1rem;
     font-weight: 600;
     text-transform: uppercase;
 }
 
-/* principal */
+.nav-links a.btn-nav {
+    background-color: var(--azul-botao);
+    color: var(--bg-branco);
+    padding: 10px 20px;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+/* principa */
 
 .titulo {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 60px auto;
-    padding: 0 20px;
+    padding: 0 40px;
 }
 
 .titulo h3 {
@@ -85,18 +127,19 @@ header {
 
 .titulo h1 {
     color: var(--azul-titulo);
-    font-size: 2.8rem;
+    font-size: 3.2rem;
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 20px;
-    max-width: 600px;
+    max-width: 800px;
 }
 
 .titulo p {
     color: var(--texto-cinza-escuro);
-    max-width: 500px;
+    max-width: 700px;
     margin-bottom: 30px;
     line-height: 1.5;
+    font-size: 1.1rem;
 }
 
 .titulo a {
@@ -113,9 +156,9 @@ header {
 /* seções */
 
 section, article {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 80px auto;
-    padding: 0 20px;
+    padding: 0 40px;
     text-align: center;
 }
 
@@ -148,6 +191,20 @@ article > p, section > p {
 }
 
 /* cards sobre e servicos */
+
+.nossosservicos{
+    background-color: var(--bg-fundos);
+    width: 100%;
+    max-width: 100%;
+    padding: 60px 0;
+    margin: 60px 0;
+}
+
+.containerservicos{
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
 
 .servicos figure, .feedbacks figure {
     background-color: var(--bg-branco);
@@ -263,7 +320,6 @@ footer > div:last-child {
 
 /* responsividade celular */
 @media (max-width: 768px) {
-    /* Menu empilhado */
     .navegacao {
         flex-direction: column;
         gap: 15px;
