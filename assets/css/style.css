@@ -2,7 +2,7 @@
 
 
 :root {
-    --bg-fundo: #f2f7fc;
+    --bg-fundo: #e7f8ff;
     --bg-branco: #ffffff;
     --texto-padrao: #333;
     --texto-cinza-escuro: #555;
@@ -141,6 +141,10 @@ article > p, section > p {
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
     gap: 30px;
+}
+
+.sobrenos {
+    background-color: var(--bg-branco);
 }
 
 /* cards sobre e servicos */

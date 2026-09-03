@@ -1,0 +1,119 @@
+/* Configuração básica */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 2rem;
+    position: relative;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Oculta o checkbox */
+.menu-toggle {
+    display: none;
+}
+
+/* Estilo do ícone hambúrguer (linhas) */
+.menu-icon {
+    display: none;
+    /* Visível apenas no mobile via media query ou padrão */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+}
+
+.menu-icon span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Lista de navegação padrão (Desktop) */
+.menu {
+    display: flex;
+    list-style: none;
+}
+
+.menu li {
+    margin-left: 20px;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.menu a:hover {
+    color: #00bcd4;
+}
+
+/* Responsividade para Dispositivos Móveis */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: flex;
+        /* Exibe o ícone no celular */
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+    }
+
+    .menu li {
+        margin: 0;
+        text-align: center;
+        padding: 15px 0;
+        border-top: 1px solid #444;
+    }
+
+    /* Quando o input estiver marcado, expande o menu */
+    .menu-toggle:checked~.menu {
+        max-height: 300px;
+        /* Altura suficiente para acomodar os itens */
+    }
+
+    /* Animação do ícone para o formato "X" */
+    .menu-toggle:checked~.menu-icon span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu-toggle:checked~.menu-icon span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle:checked~.menu-toggle:checked~.menu-icon span:nth-child(3),
+    .menu-toggle:checked~.menu-icon span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+}
