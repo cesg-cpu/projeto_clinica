@@ -1,5 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+html {
+    scroll-behavior: smooth;
+}
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 
 :root {
     --bg-fundo: #f2f7fc;
@@ -12,7 +15,7 @@
     --azul-marinho: #1a2b4c;
     --azul-titulo: #0b1c3c;
     --azul-botao: #1b75bc;
---borda-rodape: #ddd;
+    --borda-rodape: #ddd;
     --sombra-padrao: rgba(0, 0, 0, 0.05);
 }
 
@@ -20,7 +23,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 body {
@@ -34,27 +37,17 @@ header {
     background-color: var(--bg-branco);
     padding: 15px 0;
     box-shadow: 0 2px 10px var(--sombra-padrao);
+    position: relative;
+    z-index: 100;
 }
-
-/* main {
-    margin: 0 auto;
-    padding: 0 auto;
-    display: flex;
-    flex-direction: column;
-    max-width: 30000px;
-} */
 
 .navegacao {
     display: flex;
     justify-content: space-between; 
     align-items: center;
-    max-width: 1700px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 auto;
-}
-
-.navegacao, .rodape {
-    max-width: 1400px; /* Mantém o alinhamento com o topo */
+    padding: 0 20px;
 }
 
 .navegacao img {
@@ -81,6 +74,30 @@ header {
     align-items: center;
 }
 
+/* Esconde o checkbox quadrado */
+.menu-toggle {
+    display: none;
+}
+
+/* Estrutura do Ícone Hambúrguer */
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+}
+
+/* Linhas do hambúrguer */
+.menu-icon span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--azul-marinho);
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
 
 .nav-links {
     display: flex;
@@ -105,7 +122,7 @@ header {
     transition: 0.3s;
 }
 
-/* principa */
+/* principal */
 
 .titulo {
     background-image: url('../../imgs/medicos.jpg');
@@ -193,7 +210,7 @@ article > p, section > p {
 
 /* cards sobre e servicos */
 
-.nossosservicos{
+.nossosservicos {
     background-color: var(--bg-fundos);
     width: 100%;
     max-width: 100%;
@@ -201,7 +218,7 @@ article > p, section > p {
     margin: 60px 0;
 }
 
-.containerservicos{
+.containerservicos {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 40px;
@@ -232,8 +249,6 @@ article > p, section > p {
     object-fit: cover;
 }
 
-/* cards sobre */
-
 .sobre figure {
     padding: 10px;
     display: flex;
@@ -247,7 +262,6 @@ article > p, section > p {
     margin-bottom: 15px;
 }
 
-/* Textos dos cards */
 figure h3 {
     color: var(--azul-titulo);
     font-size: 1.1rem;
@@ -322,14 +336,56 @@ footer > div:last-child {
 /* responsividade celular */
 @media (max-width: 768px) {
     .navegacao {
-        flex-direction: column;
-        gap: 15px;
+        flex-direction: row; 
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .menu-icon {
+        display: flex; 
     }
     
     .nav-links {
+        display: flex;
         flex-direction: column;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-branco);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+        gap: 0;
+    }
+
+    .nav-links li {
+        width: 100%;
         text-align: center;
-        gap: 15px;
+        padding: 15px 0;
+        border-top: 1px solid #f0f0f0;
+    }
+
+    .nav-links a.btn-nav {
+        display: inline-block;
+        margin-top: 5px;
+    }
+
+    .menu-toggle:checked ~ .nav-links {
+        max-height: 450px; 
+    }
+
+    .menu-toggle:checked ~ .menu-icon span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu-toggle:checked ~ .menu-icon span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle:checked ~ .menu-icon span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
     }
 
     .titulo {
